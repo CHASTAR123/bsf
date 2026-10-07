@@ -1,0 +1,26 @@
+class Tree:
+    def __init__(self, data):
+        self.data = data
+        self.leftnode = None
+        self.rightnode = None
+
+def predecessor(root, value):
+    current = root
+    previous = None
+    while current != None:
+        if value > current.data:
+            previous = current
+            current = current.rightnode
+        else:
+            current = current.leftnode
+    if previous != None:
+        print(previous.data)
+
+root = Tree(15)
+root.leftnode = Tree(10)
+root.rightnode = Tree(20)
+root.leftnode.leftnode = Tree(5)
+root.leftnode.rightnode = Tree(12)
+predecessor(root, 5)
+
+#5 , 10 , 12 , 15 ,20
